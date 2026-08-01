@@ -2,7 +2,7 @@ const letter = `Hôm nay là ngày thật đặc biệt — ngày một cô gái
 
 Sự xuất hiện của em trong cuộc đời anh đã làm cho cuộc sống anh trở nên tuơi đẹp biết bao. 
 
-Em chính là món quà vô giá mà anh may mắn được ban tặng, chính là nguồn động lực lớn lao giúp bước đi trong cuộc sống đầy những chông gai này. 
+Em chính là món quà vô giá mà anh may mắn được ban tặng, chính là nguồn động lực lớn lao giúp anh bước đi trong cuộc sống đầy những chông gai này. 
 
 Cảm ơn em vì đã đến bên anh, vì nụ cười làm ngày dài bỗng nhẹ tênh, vì sự dịu dàng khiến mọi nơi đều có cảm giác như ở nhà.
 
