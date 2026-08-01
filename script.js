@@ -162,7 +162,9 @@ gift.addEventListener('click', () => {
 const music = document.querySelector('#music');
 
 window.addEventListener('load', () => {
-  music.play().catch(() => {});
+  setTimeout(() => {
+    music.play().catch(() => {});
+  }, 400);
 });
 
 function makeFloat(kind, host) {
