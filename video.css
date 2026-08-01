@@ -1,0 +1,1 @@
+.real-photo{display:block;width:100%;height:clamp(170px,21vw,280px);object-fit:cover}@media(max-width:700px){.real-photo{height:42vw}}
