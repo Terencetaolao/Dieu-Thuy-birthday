@@ -160,7 +160,36 @@ gift.addEventListener('click', () => {
 });
 
 const music = document.querySelector('#music');
-window.addEventListener('load', () => music.play().catch(() => {}));
+const musicToggle = document.querySelector('#musicToggle');
+
+async function playMusic() {
+  try {
+    await music.play();
+    musicToggle.classList.add('playing');
+    musicToggle.textContent = '♫ Tắt nhạc';
+  } catch {
+    music.volume = 0.5;
+  }
+}
+
+function toggleMusic() {
+  if (music.paused) {
+    playMusic();
+  } else {
+    music.pause();
+    musicToggle.classList.remove('playing');
+    musicToggle.textContent = '♫ Nhạc';
+  }
+}
+
+musicToggle.addEventListener('click', (event) => {
+  event.stopPropagation();
+  toggleMusic();
+});
+
+document.addEventListener('pointerdown', () => {
+  if (music.paused) playMusic();
+}, { once: true });
 
 function makeFloat(kind, host) {
   const el = document.createElement('span');
