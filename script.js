@@ -160,36 +160,9 @@ gift.addEventListener('click', () => {
 });
 
 const music = document.querySelector('#music');
-const musicToggle = document.querySelector('#musicToggle');
-
-async function playMusic() {
-  try {
-    await music.play();
-    musicToggle.classList.add('playing');
-    musicToggle.textContent = '♫ Tắt Nhạc';
-  } catch {
-    musicToggle.classList.remove('playing');
-    musicToggle.textContent = '♫ Bật Nhạc';
-  }
-}
-
-function toggleMusic() {
-  if (music.paused) {
-    playMusic();
-  } else {
-    music.pause();
-    musicToggle.classList.remove('playing');
-    musicToggle.textContent = '♫ Bật Nhạc';
-  }
-}
-
-musicToggle.addEventListener('click', (event) => {
-  event.stopPropagation();
-  toggleMusic();
-});
 
 window.addEventListener('load', () => {
-  playMusic();
+  music.play().catch(() => {});
 });
 
 function makeFloat(kind, host) {
