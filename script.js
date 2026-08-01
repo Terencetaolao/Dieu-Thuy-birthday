@@ -161,11 +161,13 @@ gift.addEventListener('click', () => {
 
 const music = document.querySelector('#music');
 
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    music.play().catch(() => {});
-  }, 400);
-});
+const startMusic = () => {
+  music.play().catch(() => {});
+};
+
+document.addEventListener('pointerdown', startMusic, { once: true });
+document.addEventListener('keydown', startMusic, { once: true });
+document.querySelector('#openLetter').addEventListener('click', startMusic, { once: true });
 
 function makeFloat(kind, host) {
   const el = document.createElement('span');
