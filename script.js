@@ -160,14 +160,31 @@ gift.addEventListener('click', () => {
 });
 
 const music = document.querySelector('#music');
+const musicToggle = document.querySelector('#musicToggle');
 
-const startMusic = () => {
-  music.play().catch(() => {});
+const updateMusicToggle = isPlaying => {
+  musicToggle.classList.toggle('is-playing', isPlaying);
+  const label = musicToggle.querySelector('.music-toggle-label');
+  label.textContent = isPlaying ? 'Tắt nhạc' : 'Bật nhạc';
+  musicToggle.setAttribute('aria-label', isPlaying ? 'Tắt nhạc' : 'Bật nhạc');
 };
 
-document.addEventListener('pointerdown', startMusic, { once: true });
-document.addEventListener('keydown', startMusic, { once: true });
-document.querySelector('#openLetter').addEventListener('click', startMusic, { once: true });
+musicToggle.addEventListener('click', async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      updateMusicToggle(true);
+    } catch (error) {
+      updateMusicToggle(false);
+    }
+    return;
+  }
+
+  music.pause();
+  updateMusicToggle(false);
+});
+
+updateMusicToggle(false);
 
 function makeFloat(kind, host) {
   const el = document.createElement('span');
