@@ -166,9 +166,10 @@ async function playMusic() {
   try {
     await music.play();
     musicToggle.classList.add('playing');
-    musicToggle.textContent = '♫ Tắt nhạc';
+    musicToggle.textContent = '♫ Tắt Nhạc';
   } catch {
-    music.volume = 0.5;
+    musicToggle.classList.remove('playing');
+    musicToggle.textContent = '♫ Bật Nhạc';
   }
 }
 
@@ -178,7 +179,7 @@ function toggleMusic() {
   } else {
     music.pause();
     musicToggle.classList.remove('playing');
-    musicToggle.textContent = '♫ Nhạc';
+    musicToggle.textContent = '♫ Bật Nhạc';
   }
 }
 
@@ -187,9 +188,9 @@ musicToggle.addEventListener('click', (event) => {
   toggleMusic();
 });
 
-document.addEventListener('pointerdown', () => {
-  if (music.paused) playMusic();
-}, { once: true });
+window.addEventListener('load', () => {
+  playMusic();
+});
 
 function makeFloat(kind, host) {
   const el = document.createElement('span');
